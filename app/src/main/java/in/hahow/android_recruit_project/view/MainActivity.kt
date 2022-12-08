@@ -13,6 +13,7 @@ class MainActivity: ComponentActivity() {
         setContent {
             // Set the basic theme.
             AppTheme {
+                MainScreen()
             }
         }
     }
