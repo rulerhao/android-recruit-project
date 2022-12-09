@@ -3,7 +3,7 @@ package `in`.hahow.android_recruit_project.model.courses.use_cases
 import `in`.hahow.android_recruit_project.model.courses.data.Data
 import `in`.hahow.android_recruit_project.model.courses.data.Status
 import `in`.hahow.android_recruit_project.model.courses.repository.CoursesApiRepository
-import `in`.hahow.android_recruit_project.view.util.color.time.TimeHelper
+import `in`.hahow.android_recruit_project.view.util.time.TimeHelper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

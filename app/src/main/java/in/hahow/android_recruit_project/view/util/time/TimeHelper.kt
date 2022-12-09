@@ -1,4 +1,4 @@
-package `in`.hahow.android_recruit_project.view.util.color.time
+package `in`.hahow.android_recruit_project.view.util.time
 
 import `in`.hahow.android_recruit_project.R
 import android.content.Context

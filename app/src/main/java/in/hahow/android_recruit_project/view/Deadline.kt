@@ -2,7 +2,7 @@ package `in`.hahow.android_recruit_project.view
 
 import `in`.hahow.android_recruit_project.model.courses.data.Data
 import `in`.hahow.android_recruit_project.model.courses.data.Status
-import `in`.hahow.android_recruit_project.view.util.color.time.TimeHelper
+import `in`.hahow.android_recruit_project.view.util.time.TimeHelper
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
