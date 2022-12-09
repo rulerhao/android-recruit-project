@@ -34,4 +34,23 @@ object TimeHelper {
 
     }
 
+    fun checkBeforeCurrent(dueDate: String?): Boolean {
+
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+
+        try {
+            val date: Date? = if (dueDate == null || dueDate.isEmpty()) null
+                else format.parse(dueDate)
+            val currentDate = Calendar.getInstance().time
+            if (date != null) {
+                val diff = date.time - currentDate.time
+                if (diff < 0) return true
+            }
+        } catch(e: Exception) {
+            e.printStackTrace()
+        }
+
+        return false
+    }
+
 }

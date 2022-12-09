@@ -1,15 +1,33 @@
 package `in`.hahow.android_recruit_project.model.courses.use_cases
 
-import `in`.hahow.android_recruit_project.model.courses.repository.CoursesApiRepository
-import kotlinx.coroutines.flow.Flow
 import `in`.hahow.android_recruit_project.model.courses.data.Data
+import `in`.hahow.android_recruit_project.model.courses.data.Status
+import `in`.hahow.android_recruit_project.model.courses.repository.CoursesApiRepository
+import `in`.hahow.android_recruit_project.view.util.color.time.TimeHelper
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class GetCourses(
     val repository: CoursesApiRepository
 ) {
 
     suspend operator fun invoke(): Flow<List<Data>> {
-        return repository.getCourses()
+        // Parse the out of date courses.
+        return repository.getCourses().map { courses ->
+            val mutableCourses = courses.toMutableList()
+            val deleteCourses = mutableListOf<Data>()
+
+            mutableCourses.forEach { course ->
+                if (TimeHelper.checkBeforeCurrent(course.proposalDueTime)) {
+                    if (course.status == Status.INCUBATING)
+                        deleteCourses.add(course)
+                }
+            }
+            deleteCourses.forEach {
+                mutableCourses.remove(it)
+            }
+            mutableCourses
+        }
     }
 
 }
