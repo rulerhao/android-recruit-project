@@ -2,36 +2,37 @@ package `in`.hahow.android_recruit_project.view
 
 import `in`.hahow.android_recruit_project.model.courses.data.Data
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 
 @Composable
-fun ThumbnailWithState(
-    modifier: Modifier,
-    url: String,
-    data: Data,
-    paddingSize: Dp
+fun Content(
+    paddingSize: Dp,
+    data: Data
 ) {
-
-    val cornerSize: Dp = 8.dp
-
     Box(
-        modifier = modifier
+        modifier = Modifier
             .padding(paddingSize)
+            .fillMaxSize()
     ) {
-        Thumbnail(
-            url = url,
-            cornerSize = cornerSize
+        Title(
+            modifier = Modifier
+                .align(Alignment.TopStart),
+            title = data.title
         )
-        Status(
+        Progress(
+            modifier = Modifier
+                .align(Alignment.BottomStart),
+            data = data
+        )
+        Deadline(
             modifier = Modifier
                 .align(Alignment.BottomEnd),
-            data = data,
-            cornerSize = cornerSize
+            data = data
         )
     }
 }

@@ -1,7 +1,9 @@
 package `in`.hahow.android_recruit_project.view
 
 import `in`.hahow.android_recruit_project.model.courses.data.Data
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
@@ -14,17 +16,18 @@ fun Card(
 
     val paddingSize: Dp = 8.dp
 
-    Row() {
+    Row(
+        modifier = Modifier.height(IntrinsicSize.Min) // Same height for all items.
+    ) {
         ThumbnailWithState(
             modifier = Modifier,
             url = data.coverImageUrl,
-            status = data.status,
+            data = data,
             paddingSize = paddingSize
         )
-        Title(
-            modifier = Modifier,
-            title = data.title,
-
+        Content(
+            paddingSize = paddingSize,
+            data = data
         )
     }
 }
