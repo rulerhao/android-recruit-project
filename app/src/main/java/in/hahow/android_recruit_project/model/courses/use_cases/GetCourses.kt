@@ -18,9 +18,13 @@ class GetCourses(
             val deleteCourses = mutableListOf<Data>()
 
             mutableCourses.forEach { course ->
-                if (TimeHelper.checkBeforeCurrent(course.proposalDueTime)) {
-                    if (course.status == Status.INCUBATING)
-                        deleteCourses.add(course)
+                val numCriteria = course.successCriteria.numSoldTickets
+                val numSoldTickets = course.numSoldTickets
+                if (TimeHelper.checkBeforeCurrent(course.proposalDueTime) &&
+                    course.status == Status.INCUBATING &&
+                    numCriteria > numSoldTickets
+                ) {
+                    deleteCourses.add(course)
                 }
             }
             deleteCourses.forEach {
