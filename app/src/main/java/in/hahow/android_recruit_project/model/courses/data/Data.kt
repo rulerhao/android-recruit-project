@@ -4,7 +4,7 @@ data class Data(
     val coverImageUrl: String,
     val numSoldTickets: Int,
     val proposalDueTime: String,
-    val status: String,
+    val status: Status,
     val successCriteria: SuccessCriteria,
     val title: String,
     val totalVideoLengthInSeconds: Int

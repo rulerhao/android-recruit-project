@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">android-recruit-project</string>
+    <string name="INCUBATING">募資中</string>
+    <string name="PUBLISHED">已開課</string>
+    <string name="SUCCESS">募資成功</string>
+</resources>
