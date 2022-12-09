@@ -1,4 +1,4 @@
-package `in`.hahow.android_recruit_project.model.courses.use_cases.repository
+package `in`.hahow.android_recruit_project.model.courses.repository
 
 import `in`.hahow.android_recruit_project.model.Courses
 
