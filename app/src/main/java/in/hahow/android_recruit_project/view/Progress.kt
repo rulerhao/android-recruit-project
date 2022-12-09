@@ -23,6 +23,10 @@ fun Progress(
     val numCriteria = data.successCriteria.numSoldTickets
     val numSoldTickets = data.numSoldTickets
 
+    val barPercentage = if (numSoldTickets > numCriteria) 1f
+        else if (numCriteria == 0) 1f
+        else numSoldTickets.toFloat() / numCriteria
+
     val text =
         if (numCriteria == 0) "100%"
         else {
@@ -43,10 +47,6 @@ fun Progress(
             }
         }
 
-    val percentage = if (numSoldTickets > numCriteria) 1f
-        else if (numCriteria == 0) 1f
-        else numSoldTickets.toFloat() / numCriteria
-
     val indicatorColor = StatusColor().getColor(status = data.status)
 
     Column(
@@ -60,7 +60,7 @@ fun Progress(
             modifier = Modifier
                 .fillMaxWidth(0.3f),
             color = indicatorColor,
-            progress = percentage
+            progress = barPercentage
         )
     }
 }
