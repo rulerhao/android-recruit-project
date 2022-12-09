@@ -1,9 +1,8 @@
 package `in`.hahow.android_recruit_project.view
 
-import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.model.courses.data.Data
-import `in`.hahow.android_recruit_project.model.courses.data.Status
 import `in`.hahow.android_recruit_project.view.util.color.StatusColor
+import `in`.hahow.android_recruit_project.view.util.status.StatusHelper
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,16 +22,7 @@ fun Status(
     cornerSize: Dp
 ) {
 
-    val text = LocalContext.current.getString(
-        when (data.status) {
-            Status.INCUBATING -> {
-                if (data.successCriteria.numSoldTickets < data.numSoldTickets) R.string.SUCCESS
-                else R.string.INCUBATING
-            }
-            Status.PUBLISHED -> R.string.PUBLISHED
-            Status.SUCCESS -> R.string.SUCCESS
-        }
-    )
+    val text = StatusHelper.getStatusString(LocalContext.current, data)
 
     val color = StatusColor().getColor(status = data.status)
 
