@@ -4,4 +4,6 @@
     <string name="INCUBATING">募資中</string>
     <string name="PUBLISHED">已開課</string>
     <string name="SUCCESS">募資成功</string>
+    <string name="people">人</string>
+    <string name="reach_criteria">已達標</string>
 </resources>

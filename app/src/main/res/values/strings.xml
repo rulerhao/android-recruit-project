@@ -3,4 +3,6 @@
     <string name="INCUBATING">INCUBATING</string>
     <string name="PUBLISHED">PUBLISHED</string>
     <string name="SUCCESS">SUCCESS</string>
+    <string name="people"></string>
+    <string name="reach_criteria">Fulfill</string>
 </resources>
