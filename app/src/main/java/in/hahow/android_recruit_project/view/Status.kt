@@ -2,6 +2,9 @@ package `in`.hahow.android_recruit_project.view
 
 import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.model.courses.data.Status
+import `in`.hahow.android_recruit_project.ui.theme.Incubating
+import `in`.hahow.android_recruit_project.ui.theme.Published
+import `in`.hahow.android_recruit_project.ui.theme.Success
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,20 +23,27 @@ fun Status(
     status: Status,
     cornerSize: Dp
 ) {
+
+    val text = LocalContext.current.getString(
+        when (status) {
+            Status.INCUBATING -> R.string.INCUBATING
+            Status.PUBLISHED -> R.string.PUBLISHED
+            Status.SUCCESS -> R.string.SUCCESS
+        }
+    )
+
+    val color = when (status) {
+        Status.INCUBATING -> Incubating
+        Status.PUBLISHED -> Published
+        Status.SUCCESS -> Success
+    }
+
     Text(
         modifier = modifier
             .clip(RoundedCornerShape(topStart = 16.dp, bottomEnd = cornerSize))
-            .background(Color.Green)
+            .background(color)
             .padding(horizontal = 8.dp, vertical = 4.dp),
-        text = LocalContext.current.getString(
-            when (status) {
-                Status.INCUBATING -> {
-                    R.string.INCUBATING}
-                Status.PUBLISHED -> {
-                    R.string.PUBLISHED}
-                Status.SUCCESS -> {
-                    R.string.SUCCESS}
-            }
-        )
+        text = text,
+        color = Color.White
     )
 }
