@@ -44,7 +44,7 @@ fun Progress(
         }
 
     val percentage = if (numSoldTickets > numCriteria) 1f
-        else if (numSoldTickets == 0) 1f
+        else if (numCriteria == 0) 1f
         else numSoldTickets.toFloat() / numCriteria
 
     val indicatorColor = StatusColor().getColor(status = data.status)
