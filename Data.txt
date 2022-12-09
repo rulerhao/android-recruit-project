@@ -1,0 +1,12 @@
+status: 
+
+SUCCESS
+PUBLISHED
+INCUBATING
+這部分我目前看起來可以理解，INCUBATING指的應該是募資中，PUBLISHED指的是已開課，那麼SUCCESS指的是什麼呢？
+
+-----
+
+numSoldTickets:
+
+這邊有分為在successCriteria內的跟沒有在內的，我猜測successCriteria內的指的應該是達成完成募資的門檻，在外面的則是指目前賣出的數量，想請問我的理解是不是正確的？

@@ -5,6 +5,7 @@ buildscript {
         compose_version = '1.4.0-alpha02'
         gson_version = '2.10'
         hilt_version = '2.44.2'
+        landscapist_glide_version = '2.1.0'
     }
     repositories {
         google()

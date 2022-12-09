@@ -12,9 +12,7 @@ fun MainScreen(
 
     LazyColumn() {
         items(viewModel.courses) { item ->
-            Title(
-                title = item.title
-            )
+            Card(item)
         }
     }
 
