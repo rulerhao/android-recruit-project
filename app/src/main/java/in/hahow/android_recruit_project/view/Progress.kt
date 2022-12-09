@@ -1,9 +1,8 @@
 package `in`.hahow.android_recruit_project.view
 
-import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.model.courses.data.Data
-import `in`.hahow.android_recruit_project.model.courses.data.Status
 import `in`.hahow.android_recruit_project.view.util.color.StatusColor
+import `in`.hahow.android_recruit_project.view.util.progress.ProgressHelper
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.LinearProgressIndicator
@@ -20,32 +19,10 @@ fun Progress(
 ) {
 
     val localContext = LocalContext.current
-    val numCriteria = data.successCriteria.numSoldTickets
-    val numSoldTickets = data.numSoldTickets
 
-    val barPercentage = if (numSoldTickets > numCriteria) 1f
-        else if (numCriteria == 0) 1f
-        else numSoldTickets.toFloat() / numCriteria
+    val barPercentage = ProgressHelper.getBarPercentage(data)
 
-    val text =
-        if (numCriteria == 0) "100%"
-        else {
-            val nonReachCriteriaStr = "$numSoldTickets / $numCriteria ${localContext.getString(R.string.people)}"
-            val reachCriteriaStr = "${localContext.getString(R.string.reach_criteria)} ${
-                (numSoldTickets.toFloat() /
-                        numCriteria * 100).toInt()
-            }%"
-            when (data.status) {
-                Status.PUBLISHED -> {
-                    if (numSoldTickets > numCriteria) "100%"
-                    else nonReachCriteriaStr
-                }
-                else -> {
-                    if (numSoldTickets < numCriteria) nonReachCriteriaStr
-                    else reachCriteriaStr
-                }
-            }
-        }
+    val text = ProgressHelper.getProgressString(localContext, data)
 
     val indicatorColor = StatusColor().getColor(status = data.status)
 
