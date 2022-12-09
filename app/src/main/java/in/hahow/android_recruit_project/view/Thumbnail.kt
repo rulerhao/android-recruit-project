@@ -10,19 +10,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.glide.GlideImage
 import com.skydoves.landscapist.glide.GlideImageState
 
 @Composable
 fun Thumbnail(
-    url: String
+    url: String,
+    cornerSize: Dp
 ) {
     GlideImage(
         modifier = Modifier,
         imageModel = { url },
         success = {
-            SuccessImage(it)
+            SuccessImage(
+                it,
+                cornerSize = cornerSize
+            )
         },
         loading = {
             CircularProgressIndicator(
@@ -34,13 +39,14 @@ fun Thumbnail(
 
 @Composable
 private fun SuccessImage(
-    imageState: GlideImageState.Success
+    imageState: GlideImageState.Success,
+    cornerSize: Dp
 ) {
     Image(
         modifier = Modifier
-            .width(118.dp)
-            .height(74.dp)
-            .clip(RoundedCornerShape(8.dp)),
+            .width(141.dp)
+            .height(88.dp)
+            .clip(RoundedCornerShape(cornerSize)),
         bitmap = imageState.imageBitmap!!,
         contentScale = ContentScale.Crop,
         contentDescription = null,
