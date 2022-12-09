@@ -21,7 +21,8 @@ fun Deadline(
     // as static to let it don't have to init so many times.
 
     val text = when (data.status) {
-        Status.PUBLISHED -> ""
+        Status.PUBLISHED -> "" // If courses are published than always don't show it's count down
+        // time.
         Status.INCUBATING -> str
         Status.SUCCESS -> str
     }

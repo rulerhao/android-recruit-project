@@ -7,14 +7,14 @@ import java.util.*
 
 object TimeHelper {
 
-    fun getCountDownText(context: Context, dueDate: String): String {
+    fun getCountDownText(context: Context, dueDate: String?): String {
 
         val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
 
         var str = ""
 
         try {
-            val date: Date? = if (dueDate.isEmpty()) null
+            val date: Date? = if (dueDate == null || dueDate.isEmpty()) null
             else format.parse(dueDate)
             val currentDate = Calendar.getInstance().time
             if (date != null) {
