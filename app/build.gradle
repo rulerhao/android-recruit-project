@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -52,4 +54,11 @@ dependencies {
 
     // Gson
     implementation "com.google.code.gson:gson:$gson_version"
+
+    // hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
 }
