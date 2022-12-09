@@ -2,9 +2,7 @@ package `in`.hahow.android_recruit_project.view
 
 import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.model.courses.data.Status
-import `in`.hahow.android_recruit_project.ui.theme.Incubating
-import `in`.hahow.android_recruit_project.ui.theme.Published
-import `in`.hahow.android_recruit_project.ui.theme.Success
+import `in`.hahow.android_recruit_project.view.util.color.StatusColor
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,11 +30,7 @@ fun Status(
         }
     )
 
-    val color = when (status) {
-        Status.INCUBATING -> Incubating
-        Status.PUBLISHED -> Published
-        Status.SUCCESS -> Success
-    }
+    val color = StatusColor().getColor(status = status)
 
     Text(
         modifier = modifier
