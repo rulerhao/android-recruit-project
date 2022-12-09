@@ -24,7 +24,7 @@ fun Progress(
     val numSoldTickets = data.numSoldTickets
 
     val text =
-        if (numSoldTickets == 0) "100%"
+        if (numCriteria == 0) "100%"
         else {
             val nonReachCriteriaStr = "$numSoldTickets / $numCriteria ${localContext.getString(R.string.people)}"
             val reachCriteriaStr = "${localContext.getString(R.string.reach_criteria)} ${
