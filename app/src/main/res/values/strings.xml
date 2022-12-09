@@ -5,4 +5,7 @@
     <string name="SUCCESS">SUCCESS</string>
     <string name="people"></string>
     <string name="reach_criteria">Fulfill</string>
+    <string name="count_minute">Last %1$d Minutes</string>
+    <string name="count_hour">Last %1$d Hours</string>
+    <string name="count_day">Last %1$d Days</string>
 </resources>

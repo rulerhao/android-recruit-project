@@ -6,4 +6,7 @@
     <string name="SUCCESS">募資成功</string>
     <string name="people">人</string>
     <string name="reach_criteria">已達標</string>
+    <string name="count_minute">倒數%1$d分鐘</string>
+    <string name="count_hour">倒數%1$d小時</string>
+    <string name="count_day">倒數%1$d天</string>
 </resources>
