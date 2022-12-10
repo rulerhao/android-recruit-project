@@ -1,4 +1,4 @@
-package `in`.hahow.android_recruit_project
+package `in`.hahow.android_recruit_project.courses_api
 
 import `in`.hahow.android_recruit_project.model.courses.data.Data
 import `in`.hahow.android_recruit_project.model.courses.data.Status
