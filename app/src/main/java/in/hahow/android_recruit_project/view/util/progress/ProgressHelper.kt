@@ -11,22 +11,20 @@ object ProgressHelper {
         val numCriteria = data.successCriteria.numSoldTickets
         val numSoldTickets = data.numSoldTickets
 
-        return if (numCriteria == 0) "100%"
-            else {
-                val nonReachCriteriaStr = "$numSoldTickets / $numCriteria ${context.getString(R.string.people)}"
-                val reachCriteriaStr = "${context.getString(R.string.reach_criteria)} " +
-                        "${(numSoldTickets.toFloat() / numCriteria * 100).toInt()}%"
-                when (data.status) {
-                    Status.PUBLISHED -> {
-                        if (numSoldTickets > numCriteria) "100%"
-                        else nonReachCriteriaStr
-                    }
-                    else -> {
-                        if (numSoldTickets < numCriteria) nonReachCriteriaStr
-                        else reachCriteriaStr
-                    }
-                }
-            }
+        if (numCriteria == 0) return "100%"
+        if (numSoldTickets < numCriteria) return getNonReachCriteriaStr(context, numCriteria, numSoldTickets)
+        if (data.status == Status.PUBLISHED) return "100%"
+        return getReachCriteriaStr(context, numCriteria, numSoldTickets)
+    }
+
+    private fun getNonReachCriteriaStr(context: Context, numCriteria: Int, numSoldTickets: Int):
+            String {
+        return "$numSoldTickets / $numCriteria ${context.getString(R.string.people)}"
+    }
+
+    private fun getReachCriteriaStr(context: Context, numCriteria: Int, numSoldTickets: Int): String {
+        return "${context.getString(R.string.reach_criteria)} " +
+                "${(numSoldTickets.toFloat() / numCriteria * 100).toInt()}%"
     }
 
     fun getBarPercentage(data: Data): Float {
