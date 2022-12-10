@@ -31,9 +31,8 @@ object ProgressHelper {
         val numCriteria = data.successCriteria.numSoldTickets
         val numSoldTickets = data.numSoldTickets
 
-        return if (numSoldTickets > numCriteria) 1f
-            else if (numCriteria == 0) 1f
-            else numSoldTickets.toFloat() / numCriteria
+        if (numCriteria == 0 || numSoldTickets > numCriteria) return 1f
+        return numSoldTickets.toFloat() / numCriteria
     }
 
 }
