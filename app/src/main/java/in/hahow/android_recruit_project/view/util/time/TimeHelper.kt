@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object TimeHelper {
-    
+
     fun getCountDownText(context: Context, dueDate: String?): String {
 
         val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
