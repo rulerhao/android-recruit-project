@@ -52,14 +52,4 @@ fun Deadline(
             text = text
         )
     }
-//    Image(
-//        modifier = modifier,
-//        painter = painterResource(id = R.drawable.timelapse),
-//        contentDescription = null
-//    )
-//    Text(
-//        modifier = modifier,
-//        color = Color.Gray,
-//        text = text
-//    )
 }
